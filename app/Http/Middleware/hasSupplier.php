@@ -15,7 +15,7 @@ class hasSupplier
      */
     public function handle($request, Closure $next)
     {
-        if(!\App\Supplier::count()){
+        if(\App\User::count() <= 1){
             return redirect(route('suppliers.index'))->withSuccess('Please add suppliers first!');
         }
         return $next($request);
