@@ -1,1 +1,1 @@
-#this is sample inventory system made with php/laravel
+## this is sample inventory system made with php/laravel
