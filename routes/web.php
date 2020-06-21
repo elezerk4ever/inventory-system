@@ -23,8 +23,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/suppliers', 'SupplierControllers')->middleware('auth');
 Route::resource('/products', 'ProductsController')->middleware('auth');
-Route::resource('/carts', 'CartsController')->middleware(['isAdmin','auth']);
-Route::resource('/checkout', 'CheckoutController')->middleware(['isAdmin','auth']);
-Route::resource('/inventories','InventoriesController')->middleware(['isAdmin','auth']);
-Route::resource('/receipts', 'ReceiptController')->middleware(['isAdmin','auth']);
-Route::resource('/saves', 'IncomeController')->middleware(['isAdmin','auth']);
+Route::resource('/carts', 'CartsController')->middleware(['isAdmin','auth','hasSupplier']);
+Route::resource('/checkout', 'CheckoutController')->middleware(['isAdmin','auth','hasSupplier']);
+Route::resource('/inventories','InventoriesController')->middleware(['isAdmin','auth','hasSupplier']);
+Route::resource('/receipts', 'ReceiptController')->middleware(['isAdmin','auth','hasSupplier']);
+Route::resource('/saves', 'IncomeController')->middleware(['isAdmin','auth','hasSupplier']);
