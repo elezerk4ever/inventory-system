@@ -31,7 +31,10 @@
                                     <div class="card card-body">
                                         REMAINING ITEMS
                                         <h2>
-                                            {{number_format(\App\Product::sum('qty') ?? 0,0) }}
+                                            @if (\App\Product::count())
+                                            {{number_format(\App\Product::sum('qty') ,0) }}
+                                            @endif
+                                            
                                         </h2>
                                     </div>
                                 </div>
@@ -44,7 +47,10 @@
                                    REVENUE
                                 </h4>
                                 <h2>
-                                    P {{number_format(\App\Income::where('is_save',false)->sum('amount') ?? 0,2)}}
+                                    @if (\App\Income::count())
+                                    P {{number_format(\App\Income::where('is_save',false)->sum('amount'),2)}}
+                                    @endif
+                                    
                                 </h2>
                             <form action="{{route('saves.update',1)}}" method="POST">
                                     @csrf
@@ -73,7 +79,7 @@
                                 <a href="{{route('suppliers.show',$product->user->id)}}">{{$product->name}} - < {{$product->user->name}} ></a>
                                 </div>
                                 <div class="badge badge-danger">
-                                    {{$product->qty}}
+                                    {{$product->qty ?? 0}}
                                 </div>
                             </li>
                         @empty
