@@ -31,7 +31,7 @@
                                     <div class="card card-body">
                                         REMAINING ITEMS
                                         <h2>
-                                            {{number_format(\App\Product::sum('qty'),0) ?? 0}}
+                                            {{number_format(\App\Product::sum('qty') ?? 0,0) }}
                                         </h2>
                                     </div>
                                 </div>
@@ -44,7 +44,7 @@
                                    REVENUE
                                 </h4>
                                 <h2>
-                                    P {{number_format(\App\Income::where('is_save',false)->sum('amount'),2)}}
+                                    P {{number_format(\App\Income::where('is_save',false)->sum('amount') ?? 0,2)}}
                                 </h2>
                             <form action="{{route('saves.update',1)}}" method="POST">
                                     @csrf
