@@ -15,7 +15,7 @@
                                     <div class="card card-body">
                                         NO. OF PRODUCTS
                                         <h2>
-                                            {{\App\Product::count()}}
+                                            {{\App\Product::count() ?? 0}}
                                         </h2>
                                     </div>
                                 </div>
@@ -23,7 +23,7 @@
                                     <div class="card card-body">
                                         NO. OF SUPPLIERS
                                         <h2>
-                                            {{\App\User::count() - 1}}
+                                            {{\App\User::count() - 1 ?? 0}}
                                         </h2>
                                     </div>
                                 </div>
@@ -31,7 +31,7 @@
                                     <div class="card card-body">
                                         REMAINING ITEMS
                                         <h2>
-                                            {{number_format(\App\Product::sum('qty'),0)}}
+                                            {{number_format(\App\Product::sum('qty'),0) ?? 0}}
                                         </h2>
                                     </div>
                                 </div>
@@ -95,7 +95,7 @@
                                 <div class="card card-body">
                                     PRODUCTS
                                     <h2 class="display-6">
-                                        {{number_format(auth()->user()->products()->count(),0)}}
+                                        {{number_format(auth()->user()->products()->count(),0) ?? 0}}
                                     </h2>
                                 </div>
                             </div>
