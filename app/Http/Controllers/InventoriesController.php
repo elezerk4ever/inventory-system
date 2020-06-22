@@ -21,7 +21,7 @@ class InventoriesController extends Controller
         }
         $totQty = 0;
         $products =  \App\Product::all();
-        foreach($prducts as $product){
+        foreach($products as $product){
             $totQty += $product->qty;
         }
         return view('inventories.index',compact('products','totAmount'));
