@@ -32,7 +32,7 @@
                                         REMAINING ITEMS
                                         <h2>
                                             @if (\App\Product::count())
-                                            {{number_format(\App\Product::sum('qty') ,0) }}
+                                            {{number_format($remainingItems ,0)  }}
                                             @endif
                                             
                                         </h2>

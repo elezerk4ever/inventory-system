@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class InventoriesController extends Controller
 {
@@ -19,6 +20,7 @@ class InventoriesController extends Controller
             $temp = ($pro->orig_price + $pro->profit) * $pro->actQty();
             $totAmount += $temp;
         }
+        $totQty = DB::table('products')->sum('qty');
         return view('inventories.index',compact('products','totAmount'));
     }
 

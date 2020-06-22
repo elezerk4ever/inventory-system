@@ -17,7 +17,7 @@
                     <div class="card card-body text-center">
                         TOTAL PRODUCT INVENTORY
                         <h3>
-                            {{\App\Product::sum('qty')}}
+                            {{$totQty}}
                         </h3>
                     </div>
                 </div>
