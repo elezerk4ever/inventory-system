@@ -80,7 +80,7 @@
                                     {{$product->user->name}}
                                 </td>
                                 <td>
-                                <a href="#" class="btn btn-sm btn-danger {{$product->carts()->count() ? "disabled":""}}" {{$product->carts()->count() ? "title='Unable action due to it`s orders'":""}} {{$product->carts()->count() ? "":'onclick="delete'.$product->id.'.submit()"'}} >Delete</a>
+                                <a href="#" class="btn btn-sm btn-danger {{$product->carts()->count() ? "disabled":""}}" {{$product->carts()->count() ? "title='Unable action due to it`s orders'":""}} onclick="delete{{$product->id}}.submit()" >Delete</a>
                             <form action="{{route('products.destroy',$product->id)}}" id="delete{{$product->id}}" method="POST">@csrf @method("DELETE")</form>
                                 </td>
                             </tr>
