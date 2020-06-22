@@ -24,7 +24,7 @@ class InventoriesController extends Controller
         foreach($products as $product){
             $totQty += $product->qty;
         }
-        return view('inventories.index',compact('products','totAmount'));
+        return view('inventories.index',compact('products','totAmount','totQty'));
     }
 
     /**
