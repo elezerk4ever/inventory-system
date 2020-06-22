@@ -20,8 +20,8 @@ class InventoriesController extends Controller
             $totAmount += $temp;
         }
         $totQty = 0;
-        $products =  \App\Product::all();
-        foreach($products as $product){
+        $productx =  \App\Product::all();
+        foreach($productx as $product){
             $totQty += $product->qty;
         }
         return view('inventories.index',compact('products','totAmount','totQty'));
