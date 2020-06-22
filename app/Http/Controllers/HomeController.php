@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $remainingItems = DB::tables('products')->sum('qty');
+        $remainingItems = DB::table('products')->sum('qty');
         return view('home',compact('remainingItems'));
     }
 }
