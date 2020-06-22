@@ -28,6 +28,11 @@ class HomeController extends Controller
         foreach($products as $product){
             $remainingItems += $product->qty;
         }
-        return view('home',compact('remainingItems'));
+        $revenue = 0;
+        $incomes = \App\Income::where('is_save',false)->get();
+        foreach ($incomes as $income) {
+            $revenue += $income->amount;
+        }
+        return view('home',compact('remainingItems','revenue'));
     }
 }

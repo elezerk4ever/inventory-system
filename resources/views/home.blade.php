@@ -48,7 +48,7 @@
                                 </h4>
                                 <h2>
                                     @if (\App\Income::count())
-                                    P {{number_format(\App\Income::where('is_save',false)->sum('amount'),2)}}
+                                    P {{number_format($revenue,2)}}
                                     @endif
                                     
                                 </h2>
